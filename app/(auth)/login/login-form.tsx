@@ -9,14 +9,14 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 import { Button } from "@/components";
 import { useFormState, useFormStatus } from "react-dom";
-// import { authenticate } from "@/lib/actions/authActions";
+import { authenticate } from "@/lib/authActions";
 
 export default function LoginForm() {
-  // const [state, dispatch] = useFormState(authenticate, undefined);
-  // console.log(state);
+  const [state, dispatch] = useFormState(authenticate, undefined);
+  console.log(state);
   return (
     // <form className='space-y-3'>
-    <form action={() => {}} className='space-y-3'>
+    <form action={dispatch} className='space-y-3'>
       <div className='flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8'>
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Please log in to continue.
@@ -63,7 +63,7 @@ export default function LoginForm() {
           </div>
         </div>
         <LoginButton />
-        {/* <div className='flex h-8 items-end space-x-1'>
+        <div className='flex h-8 items-end space-x-1'>
           {state === "CredentialSignin" && (
             <>
               <ExclamationCircleIcon className='h-5 w-5 text-red-500' />
@@ -72,7 +72,7 @@ export default function LoginForm() {
               </p>
             </>
           )}
-        </div> */}
+        </div>
       </div>
     </form>
   );
